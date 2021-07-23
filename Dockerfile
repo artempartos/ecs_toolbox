@@ -20,9 +20,9 @@ RUN apk update \
     python3-dev \
     groff
 
-ARG ECS_HELPER_VERSION
-
 RUN pip3 install awscli docker-compose
+
+ARG ECS_HELPER_VERSION
 
 RUN gem install ecs_helper $ECS_HELPER_VERSION
 

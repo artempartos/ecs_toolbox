@@ -24,6 +24,7 @@ RUN pip3 install awscli docker-compose
 
 ARG ECS_HELPER_VERSION
 
+RUN gem install bundler
 RUN gem install ecs_helper $ECS_HELPER_VERSION
 
 RUN mkdir /app

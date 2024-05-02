@@ -1,11 +1,11 @@
-FROM docker:20.10.6
-
-ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+FROM docker:26.1.0
 
 RUN apk update \
   && apk add --no-cache \
+    aws-cli \
     bash \
     curl \
+    docker-compose \
     gcc \
     git \
     jq \
@@ -16,11 +16,7 @@ RUN apk update \
     make \
     openssh \
     openssl-dev \
-    py3-pip \
-    python3-dev \
     groff
-
-RUN pip3 install awscli docker-compose
 
 ARG ECS_HELPER_VERSION
 

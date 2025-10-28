@@ -10,7 +10,7 @@ check_version:
 	$(call check_variable,VERSION)
 
 build:
-	docker build --build-arg ECS_HELPER_VERSION="-v ${VERSION}" . -t ${VERSION_TAG} -t ${LATEST_TAG}
+	docker build --platform linux/amd64 --build-arg ECS_HELPER_VERSION="-v ${VERSION}" . -t ${VERSION_TAG} -t ${LATEST_TAG}
 
 push:
 	docker push ${VERSION_TAG}

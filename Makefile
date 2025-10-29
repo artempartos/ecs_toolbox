@@ -1,4 +1,4 @@
-PREFIX=partos/ecs_toolbox
+PREFIX=ghcr.io/artempartos/ecs_toolbox
 VERSION_TAG=${PREFIX}:${VERSION}
 LATEST_TAG=${PREFIX}:latest
 
@@ -10,7 +10,7 @@ check_version:
 	$(call check_variable,VERSION)
 
 build:
-	docker build --build-arg ECS_HELPER_VERSION="-v ${VERSION}" . -t ${VERSION_TAG} -t ${LATEST_TAG} --platform=linux/amd64
+	docker build --build-arg ECS_HELPER_VERSION="-v ${VERSION}" . -t ${LATEST_TAG} -t ${VERSION_TAG} --platform=linux/amd64
 
 push:
 	docker push ${VERSION_TAG} && docker push ${LATEST_TAG}
